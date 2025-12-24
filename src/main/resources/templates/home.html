@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MarketScanner Home</title>
+        <link rel="stylesheet" href="/styles.css" />
+
+  </head>
+  <body class="page-home">
+    <header>
+      <div>
+        <h1>Welcome back</h1>
+        <div class="welcome" th:text="'Signed in as ' + ${username}"></div>
+      </div>
+      <form action="/logout" method="post">
+        <button class="logout" type="submit">Log out</button>
+      </form>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Market Pulse</h2>
+        <p>Top movers and breakout alerts will appear here once you connect data.</p>
+      </div>
+      <div class="card">
+        <h2>Watchlist</h2>
+        <p>Track the tickers you care about and review upcoming catalysts.</p>
+      </div>
+      <div class="card">
+        <h2>Daily Brief</h2>
+        <p>Stay on top of the open, mid-session shifts, and the closing snapshot.</p>
+      </div>
+    </section>
+  </body>
+</html>

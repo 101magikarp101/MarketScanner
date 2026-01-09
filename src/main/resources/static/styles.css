@@ -1,14 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 :root {
-  color-scheme: light;
-  --bg: #f6f1e8;
-  --card: #ffffff;
-  --ink: #2b2b2b;
-  --muted: #6b6b6b;
-  --accent: #0f6b6b;
-  --accent-dark: #0b5252;
-  --error: #b42318;
+  color-scheme: dark;
+  --bg: #0b0f14;
+  --bg-accent: #0f1a22;
+  --card: rgba(16, 22, 29, 0.92);
+  --ink: #e8eef6;
+  --muted: #8b95a7;
+  --accent: #38bdf8;
+  --accent-dark: #1e81b0;
+  --error: #ff6b6b;
   --radius: 18px;
-  --shadow: 0 18px 50px rgba(43, 43, 43, 0.12);
+  --shadow: none;
+  --border: rgba(148, 163, 184, 0.18);
 }
 
 * {
@@ -18,31 +22,31 @@
 }
 
 body {
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
   color: var(--ink);
   min-height: 100vh;
 }
 
 .page-login {
-  background:
-    radial-gradient(circle at top left, #fff3d6, transparent 55%),
-    radial-gradient(circle at bottom right, #d7efe9, transparent 55%),
-    var(--bg);
+  background: var(--bg);
   display: grid;
   place-items: center;
   padding: 32px 16px;
 }
 
 .page-home {
-  background:
-    linear-gradient(120deg, rgba(253, 242, 224, 0.9), rgba(215, 237, 240, 0.9)),
-    var(--bg);
+  background: var(--bg);
+  padding: 40px 16px;
+}
+
+.page-add {
+  background: var(--bg);
   padding: 40px 16px;
 }
 
 .card {
   background: var(--card);
-  border: 1px solid #e8e1d6;
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
@@ -54,7 +58,10 @@ body {
 
 .page-home .card {
   padding: 22px;
-  box-shadow: 0 12px 30px rgba(31, 42, 36, 0.08);
+}
+
+.page-add .card {
+  padding: 22px;
 }
 
 h1 {
@@ -67,6 +74,10 @@ h1 {
 }
 
 .page-home h1 {
+  font-size: 32px;
+}
+
+.page-add h1 {
   font-size: 32px;
 }
 
@@ -89,10 +100,17 @@ input {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid #d4cbbf;
+  border: 1px solid var(--border);
+  background: rgba(9, 14, 20, 0.9);
+  color: var(--ink);
   font-size: 16px;
   font-family: inherit;
   margin-bottom: 16px;
+}
+
+input:focus {
+  outline: 2px solid rgba(56, 189, 248, 0.5);
+  outline-offset: 2px;
 }
 
 button {
@@ -101,7 +119,7 @@ button {
   border-radius: 999px;
   border: none;
   background: var(--accent);
-  color: #fff;
+  color: #06111a;
   font-size: 16px;
   cursor: pointer;
 }
@@ -116,10 +134,44 @@ button:hover {
   margin-bottom: 14px;
 }
 
+.success {
+  color: #6ee7ff;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
 .hint {
   font-size: 13px;
   color: var(--muted);
   margin-top: 16px;
+}
+
+.divider {
+  margin: 18px 0 12px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.oauth-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--ink);
+  background: transparent;
+}
+
+.oauth-button:hover {
+  border-color: rgba(56, 189, 248, 0.6);
+  color: var(--ink);
 }
 
 header {
@@ -129,6 +181,12 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 
 .logout {
@@ -141,6 +199,16 @@ header {
 }
 
 .logout:hover {
+  color: var(--accent-dark);
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.link:hover {
   color: var(--accent-dark);
 }
 
@@ -165,4 +233,47 @@ header {
 .welcome {
   font-size: 17px;
   color: var(--muted);
+}
+
+.panel {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+.stack input {
+  margin-bottom: 0;
+}
+
+.stack button {
+  margin-top: 6px;
+}
+
+.ticker-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.ticker-list li {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(15, 23, 34, 0.9);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.ticker-list .muted {
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0;
 }

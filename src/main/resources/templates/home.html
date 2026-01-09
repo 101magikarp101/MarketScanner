@@ -13,24 +13,10 @@
         <h1>Welcome back</h1>
         <div class="welcome" th:text="'Signed in as ' + ${username}"></div>
       </div>
-      <form action="/logout" method="post">
-        <button class="logout" type="submit">Log out</button>
-      </form>
+      <div class="header-actions">
+        <a class="link" href="/add">Add ticker</a>
+        <a class="link" href="/logout">Log out</a>
+      </div>
     </header>
-
-    <section class="grid">
-      <div class="card">
-        <h2>Market Pulse</h2>
-        <p>Top movers and breakout alerts will appear here once you connect data.</p>
-      </div>
-      <div class="card">
-        <h2>Watchlist</h2>
-        <p>Track the tickers you care about and review upcoming catalysts.</p>
-      </div>
-      <div class="card">
-        <h2>Daily Brief</h2>
-        <p>Stay on top of the open, mid-session shifts, and the closing snapshot.</p>
-      </div>
-    </section>
   </body>
 </html>

@@ -25,7 +25,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-security-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'org.postgresql:postgresql'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-security-oauth2-client-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -37,9 +41,6 @@ tasks.named('test') {
 jib {
     from {
         image = 'eclipse-temurin:17-jre'
-    }
-    dockerClient {
-        executable = '/usr/local/bin/docker'
     }
     to {
         image = 'marketscanner:local'

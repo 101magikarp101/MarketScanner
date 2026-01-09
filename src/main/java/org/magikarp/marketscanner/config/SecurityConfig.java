@@ -19,7 +19,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
             ObjectProvider<ClientRegistrationRepository> clientRegistrations
-    ) throws Exception {
+    ) {
 
         boolean oauthEnabled = clientRegistrations.getIfAvailable() != null;
 

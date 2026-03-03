@@ -1,0 +1,7 @@
+# Copy to src/main/resources/application-local.properties for local development only.
+# This file is intentionally free of real secrets.
+spring.datasource.url=jdbc:postgresql://localhost:5432/marketscanner
+spring.datasource.username=ms_user
+spring.datasource.password=change-me
+spring.security.oauth2.client.registration.google.client-id=replace-with-google-client-id.apps.googleusercontent.com
+spring.security.oauth2.client.registration.google.client-secret=replace-with-google-client-secret

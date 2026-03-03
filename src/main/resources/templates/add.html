@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add Ticker</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="page-add">
+    <header>
+      <div>
+        <h1>Add a ticker</h1>
+        <div class="welcome">Store symbols for your watchlist.</div>
+      </div>
+      <div class="header-actions">
+        <a class="link" href="/home">Home</a>
+        <a class="link" href="/logout">Log out</a>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="card">
+        <h2>New symbol</h2>
+        <p>Add a ticker ID to the database.</p>
+
+        <div class="success" th:if="${success}" th:text="${success}"></div>
+        <div class="error" th:if="${error}" th:text="${error}"></div>
+
+        <form action="/add" method="post" class="stack">
+          <label for="symbol">Ticker symbol</label>
+          <input id="symbol" name="symbol" type="text" autocomplete="off" required />
+          <button type="submit">Add ticker</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Current tickers</h2>
+        <p>Saved symbols in your database.</p>
+        <ul class="ticker-list">
+          <li th:each="ticker : ${tickers}" th:text="${ticker}"></li>
+          <li class="muted" th:if="${#lists.isEmpty(tickers)}">No tickers yet.</li>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>
